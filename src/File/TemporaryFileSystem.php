@@ -17,6 +17,8 @@ final class TemporaryFileSystem implements TemporaryFileSystemInterface
 
     public function removeFile(string $filePath): void
     {
-        unlink($filePath);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
     }
 }
